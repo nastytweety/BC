@@ -11,14 +11,22 @@ namespace BC
         static void Main(string[] args)
         {
             int number;
-        
+            /*
             if(args.Length == 0 )
             {
                 Console.WriteLine("No number provided!");
                 return;
             }
-
-            number = int.Parse(args[0]);
+             number = int.Parse(args[0]);
+            */
+      
+            Console.WriteLine("Give me a number");
+            number = int.Parse(Console.ReadLine());
+            while(number<0)
+            {
+                Console.WriteLine("Give me a positive number");
+                number = int.Parse(Console.ReadLine());
+            }
             Console.WriteLine("The number you provided is: " +number);
             string result = convert(number);
             Console.WriteLine(result);
