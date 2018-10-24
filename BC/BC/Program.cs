@@ -10,30 +10,42 @@ namespace BC
     {
         static void Main(string[] args)
         {
-           // int a[];
-           //int i = 0;
             int number;
-            int bin_num = 0;
-            bin_num = int.Parse(args[1]);
+        
             if(args.Length == 0 )
             {
                 Console.WriteLine("No number provided!");
                 return;
             }
-            /*
-            Console.WriteLine("Give me a number: ");
-            string num = Console.ReadLine();
-            int bin_num = Int32.Parse(num);
-            */
-            /*
-            while(bin_num / 2 >1 )
+
+            number = int.Parse(args[0]);
+            Console.WriteLine("The number you provided is: " +number);
+            string result = convert(number);
+            Console.WriteLine(result);
+            Console.ReadKey();       
+            
+        }
+
+        static string convert(int number)
+        {
+            int i = 0;
+            int[] digits = new int[32];
+
+            while (number / 2 >= 1)
             {
-                a[i] = bin_num % 2;
-                bin_num = bin_num / 2;
+                digits[i] = number % 2;
+                number = number / 2;
                 i++;
             }
-            Console.WriteLine("The binary number is: ");
-            */
+            digits[i] = number;
+            string result = "";
+
+            while (i >= 0)
+            {
+                result = result + digits[i];
+                i = i - 1;
+            }
+            return result;
         }
     }
 }
